@@ -18,6 +18,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     {
     $errors[] = "Votre fichier doit faire moins de 1M !";
     }
+    move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadFile);
+
+    echo "<img src=".$uploadFile."/>";
 }
 
 ?>
@@ -28,3 +31,4 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     <input type="file" name="avatar" id="imageUpload" />
     <button name="send">Send</button>
 </form>
+  
